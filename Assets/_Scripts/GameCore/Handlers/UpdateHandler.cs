@@ -11,11 +11,6 @@ namespace GameCore
         private UpdatePool _updatePool;
         private UpdatePool _fixedUpdatePool;
 
-        //private void OnEnable()
-        //{
-
-        //}
-
         public void InitializeUpdate(BaseModule module)
         {
             _updatePool += module.OnUpdate;

@@ -13,11 +13,10 @@ public class DebugScript : MonoBehaviour
     {
         CoreManager.Instance.InitializeModule<ConsoleModule>();
         CoreManager.Instance.GetModule<ConsoleModule>().SetCommands(commands);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CoreManager.Instance.InitializeModule<ConfigModule>();
+
+        //CoreManager.Instance.InitializeModule<AudioModule>();
+        CoreManager.Instance.InitializeModule<FMODAudioModule>();
     }
 }

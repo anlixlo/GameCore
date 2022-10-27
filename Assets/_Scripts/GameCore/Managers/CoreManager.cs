@@ -41,7 +41,7 @@ namespace GameCore
             }
             else
             {
-                Debug.Log($"[CoreManager:InitializeModule] Duplicate Module with Type : {moduleType}");
+                Debug.Log($"[CoreManager:InitializeModule] {moduleType} is already exist!");
                 return null;
             }
         }
@@ -61,7 +61,7 @@ namespace GameCore
             }
             else
             {
-                Debug.Log($"[CoreManager:InitModule] Duplicate Module with {moduleType}");
+                Debug.Log($"[CoreManager:InitModule] {moduleType} is already initialized!");
             }
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,18 +11,34 @@ namespace GameCore
 
         public override bool Process(string[] args)
         {
+            if(args.Length == 0)
+            {
+                ShowAllSceneName();
+                return true;
+            }
+
             int _sceneIndex;
 
             if (Int32.TryParse(args[0], out _sceneIndex))
             {
-                SceneManager.LoadScene(_sceneIndex);
+                SceneManager.LoadSceneAsync(_sceneIndex);
             }
             else
             {
-                SceneManager.LoadScene(args[0]);
+                SceneManager.LoadSceneAsync(args[0]);
             }
 
             return true;
+        }
+
+        public void ShowAllSceneName()
+        {
+            var _sceneCount = SceneManager.sceneCountInBuildSettings;
+
+            for (int i = 0; i < _sceneCount; i++)
+            {
+                Debug.Log("[ " + i + " ] " + Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
+            }
         }
     }
 }

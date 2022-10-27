@@ -7,8 +7,8 @@ namespace GameCore
 {
     public class ConsoleModule : BaseModule
     {
-        private string prefix = "/";
-        private IEnumerable<IConsoleCommand> commands;
+        private string _prefix = "/";
+        private IEnumerable<IConsoleCommand> _commands;
 
         private ConsoleGUI _consoleGUI;
 
@@ -29,20 +29,20 @@ namespace GameCore
 
         public void SetCommands(string prefix, IEnumerable<IConsoleCommand> commands)
         {
-            this.prefix = prefix;
-            this.commands = commands;
+            this._prefix = prefix;
+            this._commands = commands;
         }
 
         public void SetCommands(IEnumerable<IConsoleCommand> commands)
         {
-            this.commands = commands;
+            this._commands = commands;
         }
 
         public void ProcessCommand(string inputValue)
         {
-            if (!inputValue.StartsWith(prefix)) { return; }
+            if (!inputValue.StartsWith(_prefix)) { return; }
 
-            inputValue = inputValue.Remove(0, prefix.Length);
+            inputValue = inputValue.Remove(0, _prefix.Length);
 
             string[] inputSplit = inputValue.Split(' ');
 
@@ -54,9 +54,9 @@ namespace GameCore
 
         public void ProcessCommand(string commandInput, string[] args)
         {
-            foreach(var command in commands)
+            foreach(var command in _commands)
             {
-                if (!commandInput.Equals(command.CommandWord, StringComparison.OrdinalIgnoreCase))
+                if (!commandInput.Equals(command.commandWord, StringComparison.OrdinalIgnoreCase))
                 {
                     continue;
                 }

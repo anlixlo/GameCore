@@ -2,7 +2,7 @@ namespace GameCore
 {
     public interface IConsoleCommand
     {
-        string CommandWord { get; }
+        string commandWord { get; }
 
         bool Process(string[] args);
     }

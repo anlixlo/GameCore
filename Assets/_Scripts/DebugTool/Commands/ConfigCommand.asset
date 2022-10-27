@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a68b67c66f2a452f92533bbdf1372cd, type: 3}
-  m_Name: LogCommand
+  m_Script: {fileID: 11500000, guid: 86636aac486014960920a5f24f90407e, type: 3}
+  m_Name: ConfigCommand
   m_EditorClassIdentifier: 
-  _commandWord: log
+  _commandWord: config
